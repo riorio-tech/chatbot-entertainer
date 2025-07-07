@@ -40,7 +40,7 @@ export default function Home() {
       } else {
         setError(data.error || "エラーが発生しました");
       }
-    } catch (e) {
+    } catch {
       setError("ネットワークエラー");
     } finally {
       setLoading(false);
