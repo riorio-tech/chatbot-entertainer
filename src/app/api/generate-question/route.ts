@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 export const runtime = "edge";
 
 export async function POST(req: NextRequest) {
-  const { name, age, hometown, job, student, worker, club } = await req.json();
+  const { age, hometown, job, student, worker, club } = await req.json();
   const prompt = `あなたはエンタメ系ラジオ番組のパーソナライズ質問作成AIです。以下の情報をもとに、ラジオで盛り上がるような端的で深掘りな質問を日本語で10個、箇条書きで生成してください。質問に名前は含めず、短く簡潔にしてください。\n\n年齢: ${age}\n出身: ${hometown}\n職業: ${job}\n学生時代の部活: ${club}\n学生時代の自分: ${student}\n社会人になってからの自分: ${worker}\n\n出力形式:\n• 質問1\n• 質問2\n• 質問3`;
 
   const apiKey = process.env.OPENAI_API_KEY;
